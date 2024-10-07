@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1024065889205",
+    "project_id": "week5-postmark-63ec2",
+    "storage_bucket": "week5-postmark-63ec2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024065889205:android:d0fe613ffaab125bfbeffc",
+        "android_client_info": {
+          "package_name": "com.mycompany.sendgridtest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3jlol8Tw_t5-8Xtfys0eYtcafisOXZw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
