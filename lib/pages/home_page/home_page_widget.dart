@@ -23,16 +23,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
-    _model.tofieldTextController ??= TextEditingController(
-        text: (_model.apiResulti2y?.jsonBody ?? '').toString());
+    _model.tofieldTextController ??= TextEditingController();
     _model.tofieldFocusNode ??= FocusNode();
 
-    _model.subjectFieldTextController ??= TextEditingController(
-        text: (_model.apiResulti2y?.jsonBody ?? '').toString());
+    _model.subjectFieldTextController ??= TextEditingController();
     _model.subjectFieldFocusNode ??= FocusNode();
 
-    _model.bodyFieldTextController ??= TextEditingController(
-        text: (_model.apiResulti2y?.jsonBody ?? '').toString());
+    _model.bodyFieldTextController ??= TextEditingController();
     _model.bodyFieldFocusNode ??= FocusNode();
   }
 
@@ -301,14 +298,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     to: _model.tofieldTextController.text,
                   );
 
-                  if ((_model.apiResulti2y?.jsonBody ?? '')) {
-                    safeSetState(() {
-                      _model.tofieldTextController?.text = '';
-                      _model.tofieldTextController?.selection =
-                          TextSelection.collapsed(
-                              offset:
-                                  _model.tofieldTextController!.text.length);
-                    });
+                  if (!(_model.apiResulti2y?.succeeded ?? true)) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Error: Sending Email',
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
+                        ),
+                        duration: const Duration(milliseconds: 4000),
+                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                      ),
+                    );
                   }
 
                   safeSetState(() {});
